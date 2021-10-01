@@ -15,3 +15,4 @@
 // };
 
 export * from './Components/Form'
+export * from './Components/Modal'

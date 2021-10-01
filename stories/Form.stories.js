@@ -1,38 +1,53 @@
 import React from 'react';
-import { FormInput } from '../src';
+import { FormInput, FormSelect, FormTextarea, FormButton } from '../src';
 import { storiesOf } from '@storybook/react';
 
 const stories = storiesOf('Form', module);
-
-stories.add('Input', () => {
-  return <FormInput />;
+stories.add('Sample Form', () => {
+  return (
+    <>
+      <FormInput
+        label="Name"
+        required
+        placeholder="Enter your name"
+        wrapperClasses="form-group col-md-4"
+      />
+      <FormInput
+        label="Name"
+        type="email"
+        required
+        placeholder="Enter your email ID"
+        wrapperClasses="form-group col-md-4"
+      />
+      <FormInput
+        label="Password"
+        type="password"
+        required
+        placeholder="Enter password"
+        wrapperClasses="form-group col-md-4"
+      />
+      <FormInput
+        label="Reenter Password"
+        type="password"
+        required
+        placeholder="Enter password again"
+        wrapperClasses="form-group col-md-4"
+      />
+      <FormSelect label="Gender" required wrapperClasses="form-group col-md-4">
+        <option value="0">Select Gender</option>
+        <option value="1">Male</option>
+        <option value="2">Female</option>
+      </FormSelect>
+      <FormTextarea
+        label="About You"
+        placeholder="Enter something about you"
+        wrapperClasses="form-group col-md-4"
+      />
+      <FormButton
+        disabled
+        wrapperClasses="form-group col-md-12"
+        className="btn btn-primary"
+      />
+    </>
+  );
 });
-
-// import React from 'react';
-// import { Meta, Story } from '@storybook/react';
-// import { Thing, Props } from '../src';
-
-// const meta: Meta = {
-//   title: 'Welcome',
-//   component: Thing,
-//   argTypes: {
-//     children: {
-//       control: {
-//         type: 'text',
-//       },
-//     },
-//   },
-//   parameters: {
-//     controls: { expanded: true },
-//   },
-// };
-
-// export default meta;
-
-// const Template: Story<Props> = args => <Thing {...args} />;
-
-// // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
-// // https://storybook.js.org/docs/react/workflows/unit-testing
-// export const Default = Template.bind({});
-
-// Default.args = {};
