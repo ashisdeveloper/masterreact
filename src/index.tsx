@@ -16,3 +16,6 @@
 
 export * from './Components/Form'
 export * from './Components/Modal'
+export * from './Components/Table'
+export * from './Components/Card'
+export * from './Components/FileUpload'

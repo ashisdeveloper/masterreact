@@ -1,43 +1,81 @@
 import React, { useState, useEffect } from 'react';
 import { storiesOf } from '@storybook/react';
+import { TablePagination, TableTop } from '../src';
 
 const stories = storiesOf('Table', module);
-stories.add('Data Table', () => {
-  const [tblData, setTblData] = useState([]);
-  const [options, setOptions] = useState({
-      totalRec: 200,
-      totalRec: 200,
-  })
+
+stories.add('Table', () => {
+  const [tblData, setTblData] = useState({
+    data: [],
+    total: 0,
+    limit: 10,
+    page: 1,
+  });
 
   useEffect(() => {
-    fetchData();
+    fetchTblData(tblData.page, tblData.limit);
   }, []);
-  const fetchData = async () => {
-    let data = await fetch('https://jsonplaceholder.typicode.com/todos');
+
+  useEffect(() => {
+    fetchTblData(tblData.page, tblData.limit);
+  }, [tblData.page]);
+  useEffect(() => {
+    fetchTblData(1, tblData.limit);
+  }, [tblData.limit]);
+
+  const fetchTblData = async (page, limit) => {
+    let data = await fetch(
+      'http://localhost:4000/?page=' + page + '&limit=' + limit
+    );
     data = await data.json();
-    setTblData(data);
+    setTblData((prev) => ({ ...prev, data: data.data, total: data.total }));
   };
+
+  const changePage = (page) => setTblData((prev) => ({ ...prev, page }));
+  const changeLimit = (limit) =>
+    setTblData((prev) => ({ ...prev, limit, page: 1 }));
 
   return (
     <>
-      <div className="table-responsive">
-        <table className="table table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tblData.map((item) => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.title}</td>
+      <TableTop
+        colors={[
+          { color: 'green', title: 'Success' },
+          { color: 'red', title: 'Reject' },
+          { color: 'yellow', title: 'Pending' },
+        ]}
+      >Test</TableTop>
+      <TablePagination
+        data={tblData}
+        changePage={changePage}
+        changeLimit={changeLimit}
+      >
+        {tblData.data.length > 0 && (
+          <table className="table table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>TITLE</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {tblData.data.length > 0 ? (
+                tblData.data.map((item) => (
+                  <tr key={item.specialist_id}>
+                    <td>{item.specialist_id}</td>
+                    <td>{item.specialist_name}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colspan="1000" className="text-center">
+                    No records found!
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        )}
+      </TablePagination>
     </>
   );
 });

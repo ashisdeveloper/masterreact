@@ -1,6 +1,6 @@
 {
   "name": "masterreact",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "This UI library is just a collection of React JS Components.",
   "license": "MIT",
   "main": "dist/index.js",

@@ -3,7 +3,8 @@
 
 !types.d.ts
 /test-dir
-
+/testnode
+/test.js
 # dependencies
 /node_modules
 /.pnp
