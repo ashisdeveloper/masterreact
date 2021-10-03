@@ -1,18 +1,29 @@
-import React from 'react';
-import { SinglePhotoUpload } from '../src';
+import React, { useState } from 'react';
+import { ImageUpload, FileUpload } from '../src';
 import { storiesOf } from '@storybook/react';
+import * as noImage from './no-image-icon.png';
 
 const stories = storiesOf('File Upload', module);
 stories.add('Single Photo Upload', () => {
-  const uploadFile = (e) => {
-    console.log(e.target.files[0]);
-  };
+  const [countFiles, setCountFiles] = useState(0);
+
   return (
-    <SinglePhotoUpload
-      id="photo"
-      info="Photo information"
-      src=""
-      uploadFile={uploadFile}
-    />
+    <>
+      <ImageUpload
+        id="photo"
+        info="Photo information"
+        src=""
+        uploadFile={(files) => console.log(files)}
+        noImage={noImage}
+      />
+      <hr />
+      <FileUpload
+        id="file"
+        info="File information"
+        count={countFiles}
+        uploadFile={(files) => console.log(files)}
+        multiple={true}
+      />
+    </>
   );
 });
