@@ -4,24 +4,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 
 export interface CardProps {
-    title?: string;
-    buttons?: any;
-    className?: string;
-    minHeight?: string;
-    children?: ReactChild;
+  title?: string;
+  buttons?: any;
+  className?: string;
+  minHeight?: string;
+  children?: ReactChild;
 }
 export const Card = ({ title = "", buttons = "", className = "", minHeight = "", children }: CardProps) => {
-    return (
-        <CardStyle className={classNames(className)} style={{ minHeight: minHeight != "" ? minHeight + "px" : "auto" }}>
-            <div className="content-card-top">
-                <div className="left">
-                    <div className="main-info">{title}</div>
-                </div>
-                <div className="right">{buttons}</div>
-            </div>
-            <div className="content-card">{children}</div>
-        </CardStyle>
-    );
+  return (
+    <CardStyle className={classNames(className)} style={{ minHeight: minHeight != "" ? minHeight + "px" : "auto" }}>
+      {(title != '' && buttons != '') && <div className="content-card-top">
+        <div className="left">
+          <div className="main-info">{title}</div>
+        </div>
+        <div className="right">{buttons}</div>
+      </div>}
+      <div className="content-card">{children}</div>
+    </CardStyle>
+  );
 };
 
 const CardStyle = styled.div`

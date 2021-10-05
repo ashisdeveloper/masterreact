@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import * as noImage from './no-image-icon.png';
 
 const stories = storiesOf('File Upload', module);
-stories.add('Single Photo Upload', () => {
+stories.add('File Upload', () => {
   const [countFiles, setCountFiles] = useState(0);
 
   return (

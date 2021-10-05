@@ -1,6 +1,6 @@
 # masterreact
 
-This library is just a collection of React JS Components.
+This library is just a collection of React JS & Next JS Components.
 
 ## Install
 
@@ -10,17 +10,12 @@ npm i masterreact
 
 ## Getting Started
 
-### ENCRYPTION & DECRYPTION
-
-| Methods           | Description |
-| ----------------- | ----------- |
-| `Card`            | Card        |
-| `FileUpload`      | File Upload |
-| `ImageUpload`     | File Upload |
-| `FormInput`       | Form Field  |
-| `FormTextarea`    | Form Field  |
-| `FormSelect`      | Form Field  |
-| `FormButton`      | Form Field  |
-| `Modal`           | Modal       |
-| `TableTop`        | Table       |
-| `TablePagination` | Table       |
+| Components       | Methods                                               |
+| ---------------- | ----------------------------------------------------- |
+| `Card`           | Card                                                  |
+| `File Upload`    | FileUpload, ImageUpload                               |
+| `Form`           | FormInput, FormTextarea, FormSelect, FormButton       |
+| `Modal`          | Modal                                                 |
+| `Table`          | TableTop, TablePagination                             |
+| `Dashboard`      | Dashboard                                             |
+| `Multi Tab Form` | MultiTabForm, MultiTabFormHeader, MultiTabFormContent |
