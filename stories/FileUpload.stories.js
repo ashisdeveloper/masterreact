@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ImageUpload, FileUpload } from '../src';
 import { storiesOf } from '@storybook/react';
 import * as noImage from './no-image-icon.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const stories = storiesOf('File Upload', module);
 stories.add('File Upload', () => {

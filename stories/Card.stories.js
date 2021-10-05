@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '../src';
 import { storiesOf } from '@storybook/react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 const stories = storiesOf('Card', module);
 stories.add('Sample Card', () => {
   return (

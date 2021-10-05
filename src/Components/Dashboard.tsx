@@ -1,5 +1,4 @@
 import React, { ReactChild, useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import Link from 'next/link'
 import { MdKeyboardArrowRight, MdKeyboardArrowDown } from 'react-icons/md';

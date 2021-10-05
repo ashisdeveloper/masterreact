@@ -1,6 +1,6 @@
 {
   "name": "masterreact",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "This UI library is just a collection of React JS & Next JS Components.",
   "license": "MIT",
   "main": "dist/index.js",

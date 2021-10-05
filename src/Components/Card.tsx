@@ -1,6 +1,5 @@
 import React, { ReactChild } from 'react';
 import classNames from 'classnames';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 
 export interface CardProps {

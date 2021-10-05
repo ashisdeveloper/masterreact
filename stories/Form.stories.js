@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormInput, FormSelect, FormTextarea, FormButton } from '../src';
 import { storiesOf } from '@storybook/react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const stories = storiesOf('Form', module);
 stories.add('Sample Form', () => {

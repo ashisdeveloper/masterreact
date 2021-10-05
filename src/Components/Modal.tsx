@@ -1,7 +1,6 @@
 import React, { ReactChild } from 'react';
 import { AiOutlineClose } from "react-icons/ai";
 import { Modal as ReactModal } from "react-bootstrap";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 
 export interface ModalProps {

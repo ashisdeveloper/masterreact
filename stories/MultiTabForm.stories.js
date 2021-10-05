@@ -13,6 +13,7 @@ import * as logo from './logo.png';
 import Link from 'next/link';
 import * as FiIcons from 'react-icons/fi';
 import * as RiIcons from 'react-icons/ri';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const stories = storiesOf('MultiTabForm', module);
 stories.add('Vertical', () => {

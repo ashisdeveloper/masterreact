@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { storiesOf } from '@storybook/react';
 import { TablePagination, TableTop } from '../src';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const stories = storiesOf('Table', module);
 
