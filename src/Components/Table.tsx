@@ -15,10 +15,21 @@ export interface TablePaginationProps {
   children?: ReactChild;
 }
 
-export const TablePagination = ({ data = [], changePage, changeLimit, children }: TablePaginationProps) => {
-  let pagesList = [...Array(Math.ceil(data.total / data.limit)).keys()].map(
+export const TablePagination = ({
+  data = [],
+  changePage,
+  changeLimit,
+  children,
+}: TablePaginationProps) => {
+  /* let pagesList = [...Array(Math.ceil(data.total / data.limit)).keys()].map(
     (item) => item + 1
-  );
+  ); */
+
+  let num = Math.ceil(data.total / data.limit);
+  let arr = [];
+  for (let i = 0; i < num; i++) arr.push(i);
+  let pagesList = arr.map((item) => item + 1);
+
   let showPageNos = [
     data.page - 1,
     data.page - 2,
@@ -116,7 +127,9 @@ const TablePaginationStyle = styled.div`
     display: flex;
     align-items: center;
   }
-  .info{color: #777;}
+  .info {
+    color: #777;
+  }
   select {
     margin-right: 10px;
     flex: 0 0 70px;
@@ -147,7 +160,18 @@ const TablePaginationStyle = styled.div`
 `;
 
 interface ColorsType {
-  color: "green" | "red" | "yellow" | "purple" | "orangered" | "gray" | "cyan" | "black" | "pink" | "white" | "violet";
+  color:
+    | 'green'
+    | 'red'
+    | 'yellow'
+    | 'purple'
+    | 'orangered'
+    | 'gray'
+    | 'cyan'
+    | 'black'
+    | 'pink'
+    | 'white'
+    | 'violet';
   title: string;
 }
 
@@ -163,7 +187,10 @@ export const TableTop = ({ colors = [], children }: TableTopProps) => {
         {colors.length > 0 &&
           colors.map((item, key) => (
             <div key={key} className="single">
-              <span className={classNames("color", { [`${item.color}`]: true })}></span> <span>{item.title}</span>
+              <span
+                className={classNames('color', { [`${item.color}`]: true })}
+              ></span>{' '}
+              <span>{item.title}</span>
             </div>
           ))}
       </div>
@@ -173,7 +200,7 @@ export const TableTop = ({ colors = [], children }: TableTopProps) => {
 };
 
 const TableTopStyle = styled.div`
- padding: 7px 0;
+  padding: 7px 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -185,7 +212,9 @@ const TableTopStyle = styled.div`
       margin-right: 10px;
       display: flex;
       align-items: center;
-      span{font-size:14px;}
+      span {
+        font-size: 14px;
+      }
     }
     .color {
       width: 12px;
@@ -227,7 +256,4 @@ const TableTopStyle = styled.div`
       background: violet;
     }
   }
- 
 `;
-
-

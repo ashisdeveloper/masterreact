@@ -61,9 +61,9 @@ stories.add('Table', () => {
             <tbody>
               {tblData.data.length > 0 ? (
                 tblData.data.map((item) => (
-                  <tr key={item.specialist_id}>
-                    <td>{item.specialist_id}</td>
-                    <td>{item.specialist_name}</td>
+                  <tr key={item.ser_id}>
+                    <td>{item.ser_id}</td>
+                    <td>{item.ser_name}</td>
                   </tr>
                 ))
               ) : (
