@@ -1,37 +1,30 @@
 import React, { ReactChild } from 'react';
 import { AiOutlineClose } from "react-icons/ai";
 import { Modal as ReactModal } from "react-bootstrap";
-import styled from 'styled-components';
-
 export interface ModalProps {
     show?: boolean;
-    modalAction(show: boolean): any;
-    closeButton?: boolean;
+    action(show: boolean): any;
+    close?: boolean;
     title?: string;
-    modalSize?: "lg" | "sm" | "xl";
+    size?: "lg" | "sm" | "xl";
     centered?: boolean;
     children?: ReactChild;
 }
-export const Modal = ({ show = true, modalAction, closeButton = true, title = "", modalSize = "lg", centered = false, children }: ModalProps) => {
+
+export const Modal = ({ show = true, action, close = true, title = "", size = "lg", centered = false, children }: ModalProps) => {
     return <>
-        <ReactModal className="masterreact-modal" show={show} onHide={() => modalAction(!show)} backdrop="static" size={modalSize} centered={centered}>
-            <ModalStyle>
-                {title && (
-                    <div className="modal-header">
-                        <div className="modal-title">{title}</div>
-                        {closeButton && (
-                            <button type="button" className="close" onClick={() => modalAction(!show)}>
-                                <AiOutlineClose />
-                            </button>
-                        )}
-                    </div>
-                )}
-                <ReactModal.Body>{children}</ReactModal.Body>
-            </ModalStyle>
+        <ReactModal className="masterreact-modal" show={show} onHide={() => action(!show)} backdrop="static" size={size} centered={centered}>
+            {title != '' && (
+                <div className="modal-header">
+                    <div style={{ fontSize: '20px' }} className="modal-title">{title}</div>
+                    {close && (
+                        <button type="button" className="close" onClick={() => action(!show)}>
+                            <AiOutlineClose />
+                        </button>
+                    )}
+                </div>
+            )}
+            <ReactModal.Body>{children}</ReactModal.Body>
         </ReactModal>
     </>;
 };
-
-const ModalStyle = styled.div`
-.modal-title{font-size:20px;}
-`
