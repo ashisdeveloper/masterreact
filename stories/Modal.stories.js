@@ -7,10 +7,11 @@ const stories = storiesOf('Modal', module);
 stories.add('Sample Modal', () => {
   return (
     <Modal
-      visibility
+      show
       closeButton
-      handleModal={() => !false}
+      modalAction={() => !false}
       title="Sample Modal"
+      submit="Save Changes"
     >
       Hello
     </Modal>
