@@ -97,6 +97,7 @@ const MultiTabFormStyle = styled.div`
       flex: 0 0 230px;
       margin-right: 20px;
       border: 1px solid #e8e8e8;
+      height: max-content;
       ul {
         margin: 0;
         padding: 0;

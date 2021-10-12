@@ -173,11 +173,11 @@ const DashboardStyle = styled.div`
         overflow: hidden;
         .slimScrollDiv {
             position: absolute;
-            width: 100%;
+            width:calc(100% + 20px);
             overflow-y: scroll;
             height: 100%;
             bottom: 40px;
-            left: 20px;
+            left: 0;
             padding-top: 40px;
             .sidebar-inner {
                 transition: all 0.2s ease-in-out 0s;
@@ -193,7 +193,7 @@ const DashboardStyle = styled.div`
                         li {
                             position: relative;
                             .menu-link {
-                                padding: 8px 15px 8px 0;
+                                padding: 8px 15px 8px 20px;
                                 align-items: center;
                                 display: flex;
                                 justify-content: flex-start;
@@ -245,7 +245,7 @@ const DashboardStyle = styled.div`
                                     color: #e76d01;
                                 }
                                 display: block;
-                                padding: 9px 10px 9px 36px;
+                                padding: 9px 10px 9px 56px;
                                 position: relative;
                                 color: #444;
                                 transition: all 0.2s ease-in-out;
