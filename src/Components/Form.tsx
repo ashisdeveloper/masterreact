@@ -96,15 +96,20 @@ export interface FormButtonProps {
     className?: string;
     type?: "submit" | "button" | "reset";
     disabled?: boolean;
+    onClick?: any;
     style?: {};
     text?: string;
 }
-export const FormButton = ({ wrapperClasses = "", className = "btn", type = "submit", disabled = false, text = "Save Changes", style = {} }: FormButtonProps) => {
+export const FormButton = ({ wrapperClasses = "", className = "btn", type = "submit", disabled = false, onClick = "", text = "Save Changes", style = {} }: FormButtonProps) => {
     return (
         <div className={wrapperClasses != "" ? wrapperClasses : ''}>
-            <ButtonStyle className={classNames(className)} style={style} type={type} disabled={disabled}>
+            {onClick != '' ? <ButtonStyle onClick={onClick} className={classNames(className)} style={style} type={type} disabled={disabled}>
                 {disabled && <FaSpinner className="fa-spin mr-2" />} {text}
-            </ButtonStyle>
+            </ButtonStyle> :
+                <ButtonStyle className={classNames(className)} style={style} type={type} disabled={disabled}>
+                    {disabled && <FaSpinner className="fa-spin mr-2" />} {text}
+                </ButtonStyle>}
+
         </div>
     );
 };
