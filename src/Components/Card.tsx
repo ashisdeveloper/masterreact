@@ -44,6 +44,7 @@ const CardStyle = styled.div`
       }
     }
     .right {
+      display:flex;
     }
   }
   .content-card {
