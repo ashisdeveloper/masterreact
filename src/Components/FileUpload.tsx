@@ -14,9 +14,16 @@ export interface FileUploadProps {
 export const FileUpload = ({ id, info = "", count = 0, btnText = "Upload File(s)", accept = "image/*, application/pdf", uploadFile, multiple = false }: FileUploadProps) => {
   const [countFiles, setCountFiles] = useState(count);
   const onFileChange = (e: any) => {
-    const files = [...e.target.files];
+    /* const files = [...e.target.files];
     setCountFiles(files.length);
-    uploadFile(files)
+    uploadFile(files) */
+    // console.log(e.target.files.length)
+    /* let files: any = []
+    e.target.files.map((item: any) => files.push(item))
+    setCountFiles(files.length);
+    uploadFile(files) */
+    setCountFiles(e.target.files.length);
+    uploadFile(e.target.files) 
   }
 
   return (
