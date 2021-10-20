@@ -101,8 +101,8 @@ export interface FormButtonProps {
     text?: string;
 }
 export const FormButton = ({ wrapperClasses = "", className = "btn", type = "submit", disabled = false, onClick = "", text = "Save Changes", style = {} }: FormButtonProps) => {
-    return (
-        <div className={wrapperClasses != "" ? wrapperClasses : ''}>
+    return <>
+        {wrapperClasses != "" ? <div className="wrapperClasses">
             {onClick != '' ? <ButtonStyle onClick={onClick} className={classNames(className)} style={style} type={type} disabled={disabled}>
                 {disabled && <FaSpinner className="fa-spin mr-2" />} {text}
             </ButtonStyle> :
@@ -110,8 +110,16 @@ export const FormButton = ({ wrapperClasses = "", className = "btn", type = "sub
                     {disabled && <FaSpinner className="fa-spin mr-2" />} {text}
                 </ButtonStyle>}
 
-        </div>
-    );
+        </div> : <>
+            {onClick != '' ? <ButtonStyle onClick={onClick} className={classNames(className)} style={style} type={type} disabled={disabled}>
+                {disabled && <FaSpinner className="fa-spin mr-2" />} {text}
+            </ButtonStyle> :
+                <ButtonStyle className={classNames(className)} style={style} type={type} disabled={disabled}>
+                    {disabled && <FaSpinner className="fa-spin mr-2" />} {text}
+                </ButtonStyle>}
+
+        </>}
+    </>;
 };
 
 const ButtonStyle = styled.button`
