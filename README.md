@@ -5,7 +5,7 @@ This library is just a collection of React JS & Next JS Components.
 ## Install
 
 ```
-npm i masterreact
+npm i masterreact@latest
 ```
 
 ## Getting Started
@@ -20,3 +20,4 @@ npm i masterreact
 | `Dashboard`      | Dashboard                                             |
 | `Multi Tab Form` | MultiTabForm, MultiTabFormHeader, MultiTabFormContent |
 | `Block UI`       | BlockUI                                               |
+| `Accordion`      | Accordion                                             |
