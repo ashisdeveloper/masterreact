@@ -5,12 +5,13 @@ import classNames from 'classnames';
 
 export interface AccordionProps {
   data?: any;
+  className?: string;
 }
 
-export const Accordion = ({ data = {} }: AccordionProps) => {
+export const Accordion = ({ data = [], className = '' }: AccordionProps) => {
   const [selItem, setSelItem] = useState(-1);
   return (
-    <AccordionStyle>
+    <AccordionStyle className={classNames(className)}>
       <div className="accordion-container">
         {data.map((item: any, key: number) => (
           <div
