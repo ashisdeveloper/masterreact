@@ -83,7 +83,7 @@ export const FormSelect = ({ label = "", required = false, disabled = false, wra
                 {label}
                 {required ? <span className="text-danger ml-1">*</span> : ""}
             </label>}
-            <select {...register} style={style} disabled={disabled} readOnly={readOnly} className={classNames(className, { "is-invalid": error != "" })}>
+            <select {...register} style={style} disabled={disabled} readOnly={readOnly} className={classNames(className, { "is-invalid": error != "" })} id={register?.name ? register.name : ""}>
                 {children}
             </select>
             <div className="invalid-feedback">{error}</div>

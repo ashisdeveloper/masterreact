@@ -125,7 +125,7 @@ const DashboardStyle = styled.div`
                 img {
                     max-width: 100%;
                     height: auto;
-                    max-height: 60px;
+                    max-height: 45px;
                 }
             }
         }
