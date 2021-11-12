@@ -51,7 +51,7 @@ export interface FormTextareaProps {
 export const FormTextarea = ({ label = "", required = false, placeholder = "", wrapperClasses = "", className = "form-control", style = {}, rows = 4, readOnly = false, register, error = "" }: FormTextareaProps) => {
     return (
         <div className={wrapperClasses != "" ? wrapperClasses : ''}>
-            {label != "" && <label htmlFor="">
+            {label != "" && <label htmlFor={register?.name ? register.name : ""}>
                 {label}
                 {required ? <span className="text-danger ml-1">*</span> : ""}
             </label>}
@@ -79,7 +79,7 @@ export interface FormSelectProps {
 export const FormSelect = ({ label = "", required = false, disabled = false, wrapperClasses = "", className = "form-control custom-select", style = {}, readOnly = false, register, error = "", children }: FormSelectProps) => {
     return (
         <div className={wrapperClasses != "" ? wrapperClasses : ''}>
-            {label != "" && <label htmlFor="">
+            {label != "" && <label htmlFor={register?.name ? register.name : ""}>
                 {label}
                 {required ? <span className="text-danger ml-1">*</span> : ""}
             </label>}
