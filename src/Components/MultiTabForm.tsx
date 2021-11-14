@@ -137,7 +137,6 @@ const MultiTabFormStyle = styled.div`
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
       width: 100%;
       border-radius: 5px;
-      overflow: hidden;
       height: max-content;
     }
   }
