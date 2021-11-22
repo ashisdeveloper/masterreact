@@ -21,3 +21,4 @@ npm i masterreact@latest
 | `Multi Tab Form` | MultiTabForm, MultiTabFormHeader, MultiTabFormContent |
 | `Block UI`       | BlockUI                                               |
 | `Accordion`      | Accordion                                             |
+| `GridLayout`     | GridLayout , GridBox                                  |
