@@ -22,3 +22,4 @@ npm i masterreact@latest
 | `Block UI`       | BlockUI                                               |
 | `Accordion`      | Accordion                                             |
 | `GridLayout`     | GridLayout , GridBox                                  |
+| `Tabs`           | Tabs                                                  |
