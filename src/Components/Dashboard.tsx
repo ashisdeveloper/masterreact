@@ -91,7 +91,7 @@ const DashboardStyle = styled.div`
     a{
         text-decoration:none;
     }
-    font-family: "Lato", sans-serif;
+    /* font-family: "Lato", sans-serif; */
     font-size: 0.9375rem;
     color: #1f1f1f;
     background-color: #f7f7f7;
