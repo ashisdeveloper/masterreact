@@ -26,7 +26,7 @@ export const Card = ({ title = "", buttons = "", className = "", minHeight = "",
 const CardStyle = styled.div`
  border: 1px solid #ededed;
   border-radius: 7px;
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
   background: #fff;
   .content-card-top {

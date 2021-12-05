@@ -27,7 +27,7 @@ export const Tabs = ({ activeTab = 0, tabs = [], className = "", minHeight = "au
 
 const TabsStyle = styled.div`
 background: #fff;
-overflow: hidden;
+/* overflow: hidden; */
 .tabs-list {
     display: flex;
     border-bottom: 1px solid #ddd;
