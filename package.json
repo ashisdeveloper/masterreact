@@ -1,6 +1,6 @@
 {
   "name": "masterreact",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "This UI library is just a collection of React JS & Next JS Components.",
   "license": "MIT",
   "main": "dist/index.js",
@@ -74,9 +74,11 @@
     "@types/react-dom": "^17.0.9",
     "@types/styled-components": "^5.1.14",
     "babel-loader": "^8.2.2",
+    "bootstrap": "^4.6.0",
     "husky": "^7.0.2",
     "next": "^10.2.3",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "size-limit": "^5.0.5",
@@ -85,10 +87,8 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "bootstrap": "^4.6.0",
     "classnames": "^2.3.1",
     "react-avatar": "^3.10.0",
-    "react-bootstrap": "^1.5.2",
     "react-icons": "^4.2.0",
     "styled-components": "^5.3.1"
   }
