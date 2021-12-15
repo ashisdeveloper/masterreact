@@ -5,8 +5,8 @@ import classNames from 'classnames';
 
 declare module 'react' {
     interface StyleHTMLAttributes<T> extends React.HTMLAttributes<T> {
-        jsx?: number;
-        global?: number;
+        jsx?: boolean;
+        global?: boolean;
     }
 }
 export interface SidebarProps {
@@ -87,7 +87,7 @@ export const Dashboard = ({ dashboardLink = "", logo = "", children, pageHeader,
 
             <Sidebar sidebarLinks={sidebarLinks} />
         </div>
-        <style jsx={+true} global={+true}>{`
+        <style jsx={true} global={true}>{`
 .portalWrapper {
     a{
         text-decoration:none;
