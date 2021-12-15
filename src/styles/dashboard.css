@@ -1,0 +1,7 @@
+.portalWrapper {
+    font-size: 0.9375rem;
+    color: #1f1f1f;
+    background-color: #f7f7f7;
+    min-height: 100%;
+    overflow-x: hidden;
+}

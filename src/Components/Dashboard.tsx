@@ -1,9 +1,14 @@
 import React, { ReactChild, useEffect, useState } from 'react';
-import styled from 'styled-components';
 import Link from 'next/link'
 import { MdKeyboardArrowRight, MdKeyboardArrowDown } from 'react-icons/md';
 import classNames from 'classnames';
 
+declare module 'react' {
+    interface StyleHTMLAttributes<T> extends React.HTMLAttributes<T> {
+        jsx?: boolean;
+        global?: boolean;
+    }
+}
 export interface SidebarProps {
     sidebarLinks?: any;
 }
@@ -16,23 +21,23 @@ export const Sidebar = ({ sidebarLinks }: SidebarProps) => {
     }, [])
     return <div className="sidebar">
         <div className="slimScrollDiv">
-            <div className="sidebar-inner">
-                <div className="sidebar-menu">
+            <div className="sidebarInner">
+                <div className="sidebarMenu">
                     {isLoaded && <div style={{ height: "100vh" }}>
                         <ul>
                             {sidebarLinks.map((item: any, key: number) => {
                                 return <li onClick={() => setOpenSubmenu(key == openSubmenu ? -1 : key)} className={classNames({ 'submenu': item.sub })} key={key}>
                                     {item.path == '#' ?
-                                        <div className="menu-link noselect">
+                                        <div className="menuLink noselect">
                                             <div className="icon">{item.icon}</div>
                                             <span>{item.title}</span>
-                                            {item.sub && <div className="menu-arrow">{openSubmenu == key ? <MdKeyboardArrowDown /> : <MdKeyboardArrowRight />}</div>}
+                                            {item.sub && <div className="menuArrow">{openSubmenu == key ? <MdKeyboardArrowDown /> : <MdKeyboardArrowRight />}</div>}
                                         </div>
                                         :
-                                        <Link href={item.path} passHref><a className="menu-link noselect">
+                                        <Link href={item.path} passHref><a className="menuLink noselect">
                                             <div className="icon">{item.icon}</div>
                                             <span>{item.title}</span>
-                                            {item.sub && <div className="menu-arrow">{openSubmenu == key ? <MdKeyboardArrowDown /> : <MdKeyboardArrowRight />}</div>}
+                                            {item.sub && <div className="menuArrow">{openSubmenu == key ? <MdKeyboardArrowDown /> : <MdKeyboardArrowRight />}</div>}
                                         </a></Link>
                                     }
 
@@ -46,9 +51,10 @@ export const Sidebar = ({ sidebarLinks }: SidebarProps) => {
                 </div>
             </div>
         </div>
-        <div className="software-info">Powered by <Link href="https://www.softtechlab.com" passHref><a target="_blank">SoftTechLab</a></Link> | v1.1</div>
+        <div className="softwareInfo">Powered by <Link href="https://www.softtechlab.com" passHref><a target="_blank">SoftTechLab</a></Link> | v1.1</div>
     </div>
 }
+
 
 export interface DashboardProps {
     dashboardLink?: string;
@@ -62,32 +68,27 @@ export interface DashboardProps {
 }
 
 export const Dashboard = ({ dashboardLink = "", logo = "", children, pageHeader, sidebarLinks }: DashboardProps) => {
-    return (
-        <DashboardStyle>
-            <div className="portal-wrapper">
-                <div className="header">
-                    <div className="header-left">
-                        <Link href={dashboardLink} passHref><a className="logo"><img height="40" src={logo} alt="Logo" /></a></Link>
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                        {pageHeader}
-                    </div>
+    return <>
+        <div className="portalWrapper">
+            <div className="header">
+                <div className="headerLeft">
+                    <Link href={dashboardLink} passHref><a className="logo"><img height="40" src={logo} alt="Logo" /></a></Link>
                 </div>
-
-                <div className="page-wrapper">
-                    <div className="content container-fluid">
-                        {children}
-                    </div>
+                <div className="d-flex justify-content-between align-items-center">
+                    {pageHeader}
                 </div>
-
-                <Sidebar sidebarLinks={sidebarLinks} />
             </div>
-        </DashboardStyle>
-    );
-};
 
-const DashboardStyle = styled.div`
-.portal-wrapper {
+            <div className="pageWrapper">
+                <div className="content container-fluid">
+                    {children}
+                </div>
+            </div>
+
+            <Sidebar sidebarLinks={sidebarLinks} />
+        </div>
+        <style jsx global>{`
+.portalWrapper {
     a{
         text-decoration:none;
     }
@@ -110,7 +111,7 @@ const DashboardStyle = styled.div`
         right: 0;
         top: 0;
         z-index: 1002;
-        .header-left {
+        .headerLeft {
             float: left;
             height: 60px;
             padding: 0 20px;
@@ -148,7 +149,7 @@ const DashboardStyle = styled.div`
             }
         }
     }
-    .page-wrapper {
+    .pageWrapper {
         left: 0;
         margin-left: 230px;
         padding-top: 60px;
@@ -179,10 +180,10 @@ const DashboardStyle = styled.div`
             bottom: 40px;
             left: 0;
             padding-top: 40px;
-            .sidebar-inner {
+            .sidebarInner {
                 transition: all 0.2s ease-in-out 0s;
                 width: 100%;
-                .sidebar-menu {
+                .sidebarMenu {
                     padding: 10px 0;
                     ul {
                         font-size: 15px;
@@ -192,7 +193,7 @@ const DashboardStyle = styled.div`
                         position: relative;
                         li {
                             position: relative;
-                            .menu-link {
+                            .menuLink {
                                 padding: 8px 15px 8px 20px;
                                 align-items: center;
                                 display: flex;
@@ -223,7 +224,7 @@ const DashboardStyle = styled.div`
                                     margin-left: 15px;
                                     white-space: nowrap;
                                 }
-                                .menu-arrow {
+                                .menuArrow {
                                     transition: all 0.2s ease-in-out 0s;
                                     display: inline-block;
                                     margin-left: 15px;
@@ -239,7 +240,6 @@ const DashboardStyle = styled.div`
                     }
                     .submenu {
                         ul {
-
                             a {
                                 &:hover{
                                     color: #e76d01;
@@ -256,7 +256,7 @@ const DashboardStyle = styled.div`
             }
         }
     }
-    .software-info {
+    .softwareInfo {
         color: #6c6c6c;
         font-size: 12px;
         position: absolute;
@@ -276,4 +276,6 @@ const DashboardStyle = styled.div`
         }
     }
 }
-`
+`}</style>
+    </>
+};
