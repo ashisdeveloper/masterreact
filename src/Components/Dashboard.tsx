@@ -1,12 +1,12 @@
-import React, { Fragment, ReactChild, useEffect, useState } from 'react';
+import React, { ReactChild, useEffect, useState } from 'react';
 import Link from 'next/link'
 import { MdKeyboardArrowRight, MdKeyboardArrowDown } from 'react-icons/md';
 import classNames from 'classnames';
 
 declare module 'react' {
     interface StyleHTMLAttributes<T> extends React.HTMLAttributes<T> {
-        jsx?: boolean;
-        global?: boolean;
+        jsx?: number;
+        global?: number;
     }
 }
 export interface SidebarProps {
@@ -68,7 +68,7 @@ export interface DashboardProps {
 }
 
 export const Dashboard = ({ dashboardLink = "", logo = "", children, pageHeader, sidebarLinks }: DashboardProps) => {
-    return <Fragment>
+    return <div>
         <div className="portalWrapper">
             <div className="header">
                 <div className="headerLeft">
@@ -87,7 +87,7 @@ export const Dashboard = ({ dashboardLink = "", logo = "", children, pageHeader,
 
             <Sidebar sidebarLinks={sidebarLinks} />
         </div>
-        <style jsx={true} global={true}>{`
+        <style jsx={+true} global={+true}>{`
 .portalWrapper {
     a{
         text-decoration:none;
@@ -277,5 +277,5 @@ export const Dashboard = ({ dashboardLink = "", logo = "", children, pageHeader,
     }
 }
 `}</style>
-    </Fragment>
+    </div>
 };
