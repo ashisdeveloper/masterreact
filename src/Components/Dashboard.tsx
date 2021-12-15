@@ -1,4 +1,4 @@
-import React, { ReactChild, useEffect, useState } from 'react';
+import React, { Fragment, ReactChild, useEffect, useState } from 'react';
 import Link from 'next/link'
 import { MdKeyboardArrowRight, MdKeyboardArrowDown } from 'react-icons/md';
 import classNames from 'classnames';
@@ -68,7 +68,7 @@ export interface DashboardProps {
 }
 
 export const Dashboard = ({ dashboardLink = "", logo = "", children, pageHeader, sidebarLinks }: DashboardProps) => {
-    return <>
+    return <Fragment>
         <div className="portalWrapper">
             <div className="header">
                 <div className="headerLeft">
@@ -277,5 +277,5 @@ export const Dashboard = ({ dashboardLink = "", logo = "", children, pageHeader,
     }
 }
 `}</style>
-    </>
+    </Fragment>
 };
