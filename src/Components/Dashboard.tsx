@@ -87,7 +87,7 @@ export const Dashboard = ({ dashboardLink = "", logo = "", children, pageHeader,
 
             <Sidebar sidebarLinks={sidebarLinks} />
         </div>
-        <style jsx global={true}>{`
+        <style jsx={true} global={true}>{`
 .portalWrapper {
     a{
         text-decoration:none;
